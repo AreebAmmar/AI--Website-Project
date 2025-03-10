@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Bites & Travel</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- HEADER SECTION -->
+    <header>
+        <div class="logo">
+            <a href="#">Budget Bites & Travel</a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Destinations</a></li>
+                <li><a href="#">Food Guides</a></li>
+                <li><a href="#">Budget Tips</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="btn-container">
+            <button class="btn" onclick="openModal('login')">Login</button>
+            <button class="btn" onclick="openModal('signup')">Sign Up</button>
+        </div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </header>
+
+    <div class="mobile-nav">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Destinations</a></li>
+            <li><a href="#">Food Guides</a></li>
+            <li><a href="#">Budget Tips</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><button class="btn" onclick="openModal('login')">Login</button></li>
+            <li><button class="btn" onclick="openModal('signup')">Sign Up</button></li>
+        </ul>
+    </div>
+
+    <!-- LOGIN & SIGNUP MODALS -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Sign In</h2>
+            <form>
+                <input type="email" placeholder="Enter your email" required>
+                <input type="password" placeholder="Enter your password" required>
+                <button type="submit">Login</button>
+            </form>
+            <p class="switch-form">Don't have an account? <a href="#" onclick="switchForm('signup')">Sign Up</a></p>
+        </div>
+    </div>
+
+    <div class="modal" id="signupModal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Create Account</h2>
+            <form>
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Enter your email" required>
+                <input type="password" placeholder="Create a password" required>
+                <button type="submit">Sign Up</button>
+            </form>
+            <p class="switch-form">Already have an account? <a href="#" onclick="switchForm('login')">Login</a></p>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            document.querySelector('.mobile-nav').classList.toggle('active');
+        }
+
+        function openModal(type) {
+            document.getElementById(type + "Modal").style.display = "flex";
+        }
+
+        function closeModal() {
+            document.querySelectorAll('.modal').forEach(modal => {
+                modal.style.display = "none";
+            });
+        }
+    </script>
+
+
+
+
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="overlay"></div>  
+            <div class="hero-content">
+                <h1>Explore the World, One Bite at a Time!</h1>
+                <p>Find budget-friendly travel & food experiences across the globe.</p>
+    
+                <div class="search-container">
+                    <input type="text" id="search" placeholder="Search destinations or food...">
+                    <button id="searchBtn">Explore</button>
+                </div>
+    
+                <a href="#destinations" class="cta-button">Start Your Journey</a>
+            </div>
+        </section>
+    
+        <script>
+            // Search Functionality
+            document.getElementById("searchBtn").addEventListener("click", function () {
+                let query = document.getElementById("search").value;
+                if (query.trim() !== "") {
+                    alert("Searching for: " + query);
+                } else {
+                    alert("Please enter a destination or food name.");
+                }
+            });
+        </script>
+
+</body>
+</html>
