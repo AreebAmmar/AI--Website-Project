@@ -295,7 +295,7 @@ font-size: 18px;
 }
 
 .featured-section h2 {
-    font-size: 40px;
+    font-size: 30px;
     color: #ffcc00;
     margin-bottom: 10px;
 }
@@ -412,18 +412,35 @@ font-size: 18px;
     }
 
     .dishes-container::-webkit-scrollbar {
-        display: none; /* Hide scrollbar for better UI */
+        display: none; /* Hide scrollbar */
     }
 
     .dish-card {
-        min-width: 90%; /* Ensures each card takes the screen width */
+        min-width: 90%; /* 90% visible, next card 10% peeks */
         flex: 0 0 auto;
-        scroll-snap-align: center;
+        scroll-snap-align: start;
         transition: transform 0.3s ease;
     }
 
     .dish-card:hover {
-        transform: scale(1.1);
+        transform: scale(1.05);
+    }
+
+    /* Adjust text & content for better fit */
+    .dish-info {
+        padding: 10px;
+    }
+
+    .dish-info h3 {
+        font-size: 18px; /* Slightly smaller for mobile */
+    }
+
+    .dish-info p {
+        font-size: 14px; /* Reduce text size */
+    }
+
+    .price {
+        font-size: 16px;
     }
 }
 

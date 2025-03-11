@@ -83,7 +83,7 @@
     <section class="Container1"></section>
     <!-- Featured Dishes Section -->
     <section class="featured-section">
-        <h2>🔥 Featured Dishes</h2>
+        <h2>Featured Dishes</h2>
         <p>Our best-selling dishes, crafted with love and passion.</p>
 
         <div class="dishes-container">
@@ -92,7 +92,7 @@
                 <img src="/Con1Images/Pizza.webp" alt="Pizza">
                 <div class="dish-info">
                     <h3>Cheesy Pepperoni Pizza</h3>
-                    <p>Loaded with gooey cheese and spicy pepperoni.</p>
+                    <p>Loaded with cheese and spicy pepperoni.</p>
                     <span class="price">$12.99</span>
                 </div>
             </div>
@@ -112,7 +112,7 @@
                 <img src="/Con1Images/Pasta.webp" alt="Pasta">
                 <div class="dish-info">
                     <h3>Creamy Alfredo Pasta</h3>
-                    <p>Rich and creamy pasta topped with parmesan.</p>
+                    <p>Rich and creamy pasta with parmesan.</p>
                     <span class="price">$11.99</span>
                 </div>
             </div>
@@ -161,30 +161,29 @@
             });
         });
     </script>
+    
     <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const container = document.querySelector(".dishes-container");
-        let scrollAmount = 0;
-        let interval = setInterval(autoScroll, 5000); // Auto-scroll every 5 seconds
-    
-        function autoScroll() {
-            if (scrollAmount < container.scrollWidth - container.clientWidth) {
-                scrollAmount += container.clientWidth;
-            } else {
-                scrollAmount = 0; // Reset to start
+        document.addEventListener("DOMContentLoaded", function () {
+            const container = document.querySelector(".dishes-container");
+            let scrollAmount = 0;
+            let cardWidth = container.firstElementChild.clientWidth; // Get card width
+            let interval = setInterval(autoScroll, 5000); // Auto-scroll every 5 seconds
+        
+            function autoScroll() {
+                if (scrollAmount < container.scrollWidth - container.clientWidth) {
+                    scrollAmount += cardWidth * 0.9; // Move 90% of the card width
+                } else {
+                    scrollAmount = 0; // Reset to start
+                }
+                container.scrollTo({ left: scrollAmount, behavior: "smooth" });
             }
-            container.scrollTo({ left: scrollAmount, behavior: "smooth" });
-        }
-    
-        // Pause auto-scroll when user manually interacts
-        container.addEventListener("mousedown", () => clearInterval(interval));
-        container.addEventListener("touchstart", () => clearInterval(interval));
-    });
+        
+            // Pause auto-scroll when user manually interacts
+            container.addEventListener("mousedown", () => clearInterval(interval));
+            container.addEventListener("touchstart", () => clearInterval(interval));
+        });
+        
     </script>
-    
-
-    
-
 
 </body>
 </html>
