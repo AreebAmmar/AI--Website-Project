@@ -398,23 +398,67 @@ font-size: 18px;
     }
 }
 
-    /* Responsive - Change grid to horizontal scrolling on mobile */
 @media (max-width: 768px) {
+    .featured-section {
+        padding: 40px 5%; /* Reduce padding for better spacing */
+        text-align: left; /* Align heading properly */
+    }
+
+    .featured-section h2 {
+        font-size: 28px; /* Keep heading in one line */
+        white-space: nowrap; /* Prevent wrapping */
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
     .dishes-container {
         display: flex;
         overflow-x: auto;
         scroll-snap-type: x mandatory;
-        gap: 20px;
-        padding: 10px;
+        gap: 15px; /* Space between cards */
+        padding: 0 5%;
         justify-content: flex-start;
     }
 
     .dish-card {
-        min-width: 280px;
+        min-width: 100%; /* First card fits the screen */
         flex: 0 0 auto;
         scroll-snap-align: center;
+        border-radius: 12px; /* Rounded corners */
+        transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .dish-card img {
+        height: 250px;
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+    }
+
+    .dish-info {
+        padding: 15px;
+    }
+
+    .dish-info h3 {
+        font-size: 18px;
+    }
+
+    .dish-info p {
+        font-size: 14px;
+    }
+
+    .price {
+        font-size: 16px;
+    }
+
+    /* Hover Effect - Change Background & Scale */
+    .dish-card:hover {
+        background: rgba(255, 204, 0, 0.2); /* Different color on hover */
+        transform: scale(1.03); /* Slight zoom effect */
+        border-radius: 15px; /* Soft border effect */
     }
 }
+
+
 /* #endregion */
 
 
