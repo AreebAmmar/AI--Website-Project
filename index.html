@@ -80,89 +80,111 @@
     </section>
 
 
-    <section class="Container1">
-        <!-- Featured Dishes Section -->
-        <section class="featured-section">
-            <h2>🔥 Featured Dishes</h2>
-            <p>Our best-selling dishes, crafted with love and passion.</p>
+    <section class="Container1"></section>
+    <!-- Featured Dishes Section -->
+    <section class="featured-section">
+        <h2>🔥 Featured Dishes</h2>
+        <p>Our best-selling dishes, crafted with love and passion.</p>
 
-            <div class="dishes-container">
-                <!-- Dish 1 -->
-                <div class="dish-card">
-                    <img src="https://source.unsplash.com/400x300/?pizza" alt="Pizza">
-                    <div class="dish-info">
-                        <h3>Cheesy Pepperoni Pizza</h3>
-                        <p>Loaded with gooey cheese and spicy pepperoni.</p>
-                        <span class="price">$12.99</span>
-                    </div>
-                </div>
-
-                <!-- Dish 2 -->
-                <div class="dish-card">
-                    <img src="https://source.unsplash.com/400x300/?burger" alt="Burger">
-                    <div class="dish-info">
-                        <h3>Classic Beef Burger</h3>
-                        <p>Juicy grilled beef patty with fresh toppings.</p>
-                        <span class="price">$9.99</span>
-                    </div>
-                </div>
-
-                <!-- Dish 3 -->
-                <div class="dish-card">
-                    <img src="https://source.unsplash.com/400x300/?pasta" alt="Pasta">
-                    <div class="dish-info">
-                        <h3>Creamy Alfredo Pasta</h3>
-                        <p>Rich and creamy pasta topped with parmesan.</p>
-                        <span class="price">$11.99</span>
-                    </div>
-                </div>
-
-                <!-- Dish 4 -->
-                <div class="dish-card">
-                    <img src="https://source.unsplash.com/400x300/?sushi" alt="Sushi">
-                    <div class="dish-info">
-                        <h3>Fresh Sushi Platter</h3>
-                        <p>Hand-rolled sushi with fresh ingredients.</p>
-                        <span class="price">$14.99</span>
-                    </div>
-                </div>
-                
-                <!-- Dish 4 -->
-                <div class="dish-card">
-                    <img src="https://source.unsplash.com/400x300/?sushi" alt="Sushi">
-                    <div class="dish-info">
-                        <h3>Fresh Sushi Platter</h3>
-                        <p>Hand-rolled sushi with fresh ingredients.</p>
-                        <span class="price">$14.99</span>
-                    </div>
-                </div>
-
-                <!-- Dish 4 -->
-                <div class="dish-card">
-                    <img src="https://source.unsplash.com/400x300/?sushi" alt="Sushi">
-                    <div class="dish-info">
-                        <h3>Fresh Sushi Platter</h3>
-                        <p>Hand-rolled sushi with fresh ingredients.</p>
-                        <span class="price">$14.99</span>
-                    </div>
+        <div class="dishes-container">
+            <!-- Dish 1 -->
+            <div class="dish-card">
+                <img src="/Con1Images/Pizza.webp" alt="Pizza">
+                <div class="dish-info">
+                    <h3>Cheesy Pepperoni Pizza</h3>
+                    <p>Loaded with gooey cheese and spicy pepperoni.</p>
+                    <span class="price">$12.99</span>
                 </div>
             </div>
-        </section>
 
-        <script>
-            // GSAP Animation for Smooth Entrance
-            document.addEventListener("DOMContentLoaded", function () {
-                gsap.to(".dish-card", {
-                    opacity: 1,
-                    duration: 1.5,
-                    stagger: 0.2,
-                    ease: "power3.out",
-                    delay: 0.5
-                });
-            });
-        </script>
+            <!-- Dish 2 -->
+            <div class="dish-card">
+                <img src="/Con1Images/Burger.webp" alt="Burger">
+                <div class="dish-info">
+                    <h3>Classic Beef Burger</h3>
+                    <p>Juicy grilled beef patty with fresh toppings.</p>
+                    <span class="price">$9.99</span>
+                </div>
+            </div>
+
+            <!-- Dish 3 -->
+            <div class="dish-card">
+                <img src="/Con1Images/Pasta.webp" alt="Pasta">
+                <div class="dish-info">
+                    <h3>Creamy Alfredo Pasta</h3>
+                    <p>Rich and creamy pasta topped with parmesan.</p>
+                    <span class="price">$11.99</span>
+                </div>
+            </div>
+
+            <!-- Dish 4 -->
+            <div class="dish-card">
+                <img src="/Con1Images/Sushi.webp" alt="Sushi">
+                <div class="dish-info">
+                    <h3>Fresh Sushi Platter</h3>
+                    <p>Hand-rolled sushi with fresh ingredients.</p>
+                    <span class="price">$14.99</span>
+                </div>
+            </div>
+
+            <!-- Dish 5 -->
+            <div class="dish-card">
+                <img src="/Con1Images/Salmon.webp" alt="Sushi">
+                <div class="dish-info">
+                    <h3>Gourmet Grilled Salmon</h3>
+                    <p>Hand-rolled sushi with fresh ingredients.</p>
+                    <span class="price">$14.99</span>
+                </div>
+            </div>
+
+            <!-- Dish 6 -->
+            <div class="dish-card">
+                <img src="/Con1Images/Cake.webp" alt="Sushi">
+                <div class="dish-info">
+                    <h3>Chocolate Lava Cake</h3>
+                    <p>Hand-rolled sushi with fresh ingredients.</p>
+                    <span class="price">$14.99</span>
+                </div>
+            </div>
+        </div>
     </section>
+
+    <script>
+        // GSAP Animation for Smooth Entrance
+        document.addEventListener("DOMContentLoaded", function () {
+            gsap.to(".dish-card", {
+                opacity: 1,
+                duration: 1.5,
+                stagger: 0.2,
+                ease: "power3.out",
+                delay: 0.5
+            });
+        });
+    </script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const container = document.querySelector(".dishes-container");
+        let scrollAmount = 0;
+        let interval = setInterval(autoScroll, 5000); // Auto-scroll every 5 seconds
     
+        function autoScroll() {
+            if (scrollAmount < container.scrollWidth - container.clientWidth) {
+                scrollAmount += container.clientWidth;
+            } else {
+                scrollAmount = 0; // Reset to start
+            }
+            container.scrollTo({ left: scrollAmount, behavior: "smooth" });
+        }
+    
+        // Pause auto-scroll when user manually interacts
+        container.addEventListener("mousedown", () => clearInterval(interval));
+        container.addEventListener("touchstart", () => clearInterval(interval));
+    });
+    </script>
+    
+
+    
+
 
 </body>
 </html>
