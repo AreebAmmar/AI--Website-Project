@@ -3,382 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Budget Bites & Travel</title>
-    <style>
-        /* Google Font */
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        /* HEADER */
-        header {
-            background: linear-gradient(to right, #ff512f, #dd2476);
-            color: white;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 50px;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .logo a {
-            color: white;
-            font-size: 24px;
-            font-weight: bold;
-            text-decoration: none;
-            transition: 0.3s;
-        }
-
-        .logo a:hover {
-            color: #ffe082;
-        }
-
-        nav {
-            display: flex;
-            align-items: center;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 20px;
-        }
-
-        nav ul li {
-            display: inline;
-        }
-
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-size: 16px;
-            font-weight: 500;
-            transition: 0.3s;
-        }
-
-        nav ul li a:hover {
-            color: #ffe082;
-        }
-
-        /* BUTTON STYLING */
-        .btn-container {
-            display: flex;
-            gap: 10px;
-        }
-
-        .btn {
-            background: #ffe082;
-            color: #dd2476;
-            border: none;
-            padding: 8px 15px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            border-radius: 25px; /* Added Border Radius */
-            transition: 0.3s;
-        }
-
-        .btn:hover {
-            background: white;
-            color: #ff512f;
-        }
-
-        /* MODAL STYLING */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 2000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-content {
-            background: white;
-            padding: 25px;
-            width: 350px;
-            text-align: center;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            animation: fadeIn 0.5s ease-in-out;
-        }
-
-        .close {
-            float: right;
-            font-size: 22px;
-            cursor: pointer;
-            color: #ff512f;
-        }
-
-        .close:hover {
-            color: red;
-        }
-
-        .modal h2 {
-            margin-bottom: 15px;
-            color: #ff512f;
-        }
-
-        form input {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            outline: none;
-            transition: 0.3s;
-        }
-
-        form input:focus {
-            border: 1px solid #ff512f;
-        }
-
-        form button {
-            background: #ff512f;
-            color: white;
-            padding: 10px;
-            width: 100%;
-            border: none;
-            cursor: pointer;
-            transition: 0.3s;
-            border-radius: 5px;
-        }
-
-        form button:hover {
-            background: #dd2476;
-        }
-
-        .switch-form {
-            margin-top: 10px;
-            font-size: 14px;
-        }
-
-        .switch-form a {
-            color: #ff512f;
-            text-decoration: none;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .switch-form a:hover {
-            color: #dd2476;
-        }
-
-        /* HAMBURGER MENU */
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-        }
-
-        .hamburger div {
-            width: 30px;
-            height: 3px;
-            background: white;
-            margin: 5px;
-            transition: 0.3s;
-        }
-
-        /* MOBILE NAV */
-        .mobile-nav {
-            display: none;
-            position: absolute;
-            top: 60px;
-            left: 0;
-            width: 100%;
-            background: rgba(255, 81, 47, 0.9);
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
-            transform: translateY(-100%);
-            transition: transform 0.4s ease-in-out;
-        }
-
-        .mobile-nav.active {
-            transform: translateY(0);
-            display: flex;
-        }
-
-        .mobile-nav ul {
-            list-style: none;
-            padding: 0;
-            width: 100%;
-            text-align: center;
-        }
-
-        .mobile-nav ul li {
-            margin: 10px 0;
-        }
-
-        .mobile-nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: bold;
-        }
-
-        /* RESPONSIVE DESIGN */
-        @media (max-width: 768px) {
-            nav ul, .btn-container {
-                display: none;
-            }
-
-            .hamburger {
-                display: flex;
-            }
-
-            .btn {
-                width: 100%;
-            }
-        }
-
-
-
-
-
-
-
-
-
-        
-            .hero {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                text-align: center;
-                height: 100vh; /* Full viewport height */
-                background: white;
-            }
-        
-            .hero-content {
-                max-width: 600px;
-            }
-        
-            .hero h1 {
-                font-size: 36px;
-                font-weight: 600;
-                color: #ff512f;
-            }
-        
-            .hero p {
-                font-size: 18px;
-                color: #333;
-                margin: 10px 0 20px;
-            }
-        
-            .hero .btn {
-                font-size: 18px;
-                padding: 10px 20px;
-            }
-        
-    </style>
+    <title>Foodie's Hub - Navbar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- HEADER SECTION -->
-    <header>
-        <div class="logo">
-            <a href="#">Budget Bites & Travel</a>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Destinations</a></li>
-                <li><a href="#">Food Guides</a></li>
-                <li><a href="#">Budget Tips</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-        <div class="btn-container">
-            <button class="btn" onclick="openModal('login')">Login</button>
-            <button class="btn" onclick="openModal('signup')">Sign Up</button>
-        </div>
-        <div class="hamburger" onclick="toggleMenu()">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </header>
-
-    <div class="mobile-nav">
-        <ul>
+    <nav class="navbar">
+        <div class="logo">Foodie's Hub</div>
+        <ul id="nav-links">
             <li><a href="#">Home</a></li>
-            <li><a href="#">Destinations</a></li>
-            <li><a href="#">Food Guides</a></li>
-            <li><a href="#">Budget Tips</a></li>
+            <li><a href="#">Menu</a></li>
+            <li><a href="#">Gallery</a></li>
             <li><a href="#">Contact</a></li>
-            <li><button class="btn" onclick="openModal('login')">Login</button></li>
-            <li><button class="btn" onclick="openModal('signup')">Sign Up</button></li>
         </ul>
+        <div class="search-box">
+            <input type="text" placeholder="Search...">
+            <i class="fas fa-search"></i>
+        </div>
+        <div class="auth-buttons">
+            <button onclick="showForm('login-form')">Login</button>
+            <button onclick="showForm('signup-form')">Signup</button>
+        </div>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    </nav>
+
+    <!-- Login Form -->
+    <div class="form-container" id="login-form">
+        <span class="close-btn" onclick="closeForm('login-form')">✖</span>
+        <h2>Login</h2>
+        <input type="text" placeholder="Username">
+        <input type="password" placeholder="Password">
+        <button>Login</button>
     </div>
 
-    <!-- LOGIN & SIGNUP MODALS -->
-    <div class="modal" id="loginModal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h2>Sign In</h2>
-            <form>
-                <input type="email" placeholder="Enter your email" required>
-                <input type="password" placeholder="Enter your password" required>
-                <button type="submit">Login</button>
-            </form>
-            <p class="switch-form">Don't have an account? <a href="#" onclick="switchForm('signup')">Sign Up</a></p>
-        </div>
-    </div>
-
-    <div class="modal" id="signupModal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h2>Create Account</h2>
-            <form>
-                <input type="text" placeholder="Full Name" required>
-                <input type="email" placeholder="Enter your email" required>
-                <input type="password" placeholder="Create a password" required>
-                <button type="submit">Sign Up</button>
-            </form>
-            <p class="switch-form">Already have an account? <a href="#" onclick="switchForm('login')">Login</a></p>
-        </div>
+    <!-- Signup Form -->
+    <div class="form-container" id="signup-form">
+        <span class="close-btn" onclick="closeForm('signup-form')">✖</span>
+        <h2>Signup</h2>
+        <input type="text" placeholder="Username">
+        <input type="email" placeholder="Email">
+        <input type="password" placeholder="Password">
+        <button>Signup</button>
     </div>
 
     <script>
         function toggleMenu() {
-            document.querySelector('.mobile-nav').classList.toggle('active');
+            document.getElementById("nav-links").classList.toggle("active");
         }
 
-        function openModal(type) {
-            document.getElementById(type + "Modal").style.display = "flex";
+        function showForm(id) {
+            // Hide both forms before displaying the selected one
+            document.getElementById("login-form").style.display = "none";
+            document.getElementById("signup-form").style.display = "none";
+        
+            // Show the selected form
+            document.getElementById(id).style.display = "block";
         }
+        
 
-        function closeModal() {
-            document.querySelectorAll('.modal').forEach(modal => {
-                modal.style.display = "none";
-            });
+        function closeForm(id) {
+            document.getElementById(id).style.display = "none";
         }
     </script>
 
 
-        <!-- HERO SECTION -->
-        <section class="hero">
-            <div class="hero-content">
-                <h1>Explore the World on a Budget</h1>
-                <p>Discover affordable destinations, delicious budget-friendly bites, and smart travel tips.</p>
-                <button class="btn">Start Exploring</button>
-            </div>
-        </section>
+
+
+
+
+
+
+
+
+        <!-- Hero Section -->
+        <div class="hero">
+            <h1>Welcome to Foodie's Hub</h1>
+            <p>Experience the finest cuisine crafted with love and passion. Taste the best dishes made from fresh ingredients.</p>
+            <button class="cta-btn">Explore Menu</button>
+        </div>
 
 </body>
 </html>
